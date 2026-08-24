@@ -1,0 +1,1618 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SKILLER OPTIMIZATION | PC Optimization</title>
+    <meta name="description" content="Professional Windows and gaming PC optimization for better performance, FPS and responsiveness.">
+    <meta name="theme-color" content="#07090f">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #07090f;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(7, 9, 15, 0.88);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            height: 76px;
+            padding: 0 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #7c5cff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #b9bdca;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .nav-button {
+            padding: 11px 18px;
+            border-radius: 10px;
+            background: #7c5cff;
+            font-weight: 800;
+            font-size: 14px;
+            transition: 0.25s;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            background: #6846f5;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            padding: 160px 25px 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: #7c5cff;
+            filter: blur(180px);
+            opacity: 0.13;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 15px;
+            border: 1px solid rgba(124,92,255,0.4);
+            background: rgba(124,92,255,0.08);
+            color: #b8aaff;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 90px);
+            line-height: 0.98;
+            font-weight: 950;
+            letter-spacing: -4px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #8b6cff;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 0 auto 35px;
+            color: #aeb3c2;
+            font-size: 18px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-weight: 900;
+            transition: 0.25s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: #7c5cff;
+            color: white;
+            box-shadow: 0 10px 35px rgba(124,92,255,0.22);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background: #6948f5;
+        }
+
+        .btn-secondary {
+            border: 1px solid #292d3a;
+            background: #11141d;
+            color: #ffffff;
+        }
+
+        .btn-secondary:hover {
+            border-color: #7c5cff;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats {
+            max-width: 1000px;
+            margin: -35px auto 100px;
+            padding: 0 25px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .stat {
+            background: #0e1119;
+            border: 1px solid #202432;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .stat h3 {
+            font-size: 28px;
+            margin-bottom: 4px;
+        }
+
+        .stat p {
+            color: #858b9b;
+            font-size: 13px;
+        }
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        section {
+            padding: 100px 25px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 55px;
+        }
+
+        .section-label {
+            color: #8d75ff;
+            font-size: 13px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(32px, 5vw, 50px);
+            line-height: 1.05;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: #9298a8;
+        }
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: #0e1119;
+            border: 1px solid #202432;
+            padding: 30px;
+            border-radius: 18px;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: #4c3b9e;
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(124,92,255,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: #8f95a5;
+            font-size: 14px;
+        }
+
+        /* =========================
+           PRICING
+        ========================= */
+
+        .pricing {
+            background: #090c13;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .price-card {
+            background: #0e1119;
+            border: 1px solid #242837;
+            border-radius: 20px;
+            padding: 35px;
+            position: relative;
+        }
+
+        .price-card.featured {
+            border-color: #7c5cff;
+            box-shadow: 0 0 50px rgba(124,92,255,0.08);
+        }
+
+        .popular {
+            position: absolute;
+            top: -13px;
+            right: 25px;
+            padding: 6px 12px;
+            background: #7c5cff;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 900;
+        }
+
+        .price-card h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .price-description {
+            color: #838999;
+            font-size: 13px;
+            min-height: 42px;
+        }
+
+        .price {
+            font-size: 50px;
+            font-weight: 950;
+            margin: 25px 0;
+        }
+
+        .price small {
+            font-size: 14px;
+            color: #858b9b;
+            font-weight: 600;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .features li {
+            color: #c0c4d0;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .features li::before {
+            content: "✓";
+            color: #8e78ff;
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        .price-button {
+            width: 100%;
+        }
+
+        /* =========================
+           PROCESS
+        ========================= */
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .process-card {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .number {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #151925;
+            border: 1px solid #292e40;
+            color: #9b88ff;
+            font-weight: 900;
+        }
+
+        .process-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .process-card p {
+            color: #858b9b;
+            font-size: 13px;
+        }
+
+        /* =========================
+           ORDER
+        ========================= */
+
+        .order-section {
+            background: #090c13;
+        }
+
+        .order-box {
+            max-width: 800px;
+            margin: auto;
+            background: #0e1119;
+            border: 1px solid #252a39;
+            border-radius: 22px;
+            padding: 40px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #c7cad4;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            background: #090c13;
+            border: 1px solid #292e3d;
+            color: white;
+            border-radius: 10px;
+            padding: 13px 14px;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #7c5cff;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-note {
+            color: #707687;
+            font-size: 12px;
+            margin-top: 12px;
+        }
+
+        /* =========================
+           FAQ
+        ========================= */
+
+        .faq {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        details {
+            background: #0e1119;
+            border: 1px solid #222735;
+            border-radius: 13px;
+            margin-bottom: 12px;
+            padding: 20px;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 800;
+        }
+
+        details p {
+            color: #858b9b;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            text-align: center;
+        }
+
+        .cta-box {
+            background: linear-gradient(
+                135deg,
+                #111525,
+                #0e1119
+            );
+            border: 1px solid #302b55;
+            border-radius: 25px;
+            padding: 70px 30px;
+        }
+
+        .cta-box h2 {
+            font-size: clamp(32px, 5vw, 55px);
+            margin-bottom: 15px;
+        }
+
+        .cta-box p {
+            color: #8d93a3;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid #1b1f2b;
+            padding: 35px 25px;
+            color: #6f7585;
+            font-size: 13px;
+        }
+
+        .footer-container {
+            max-width: 1150px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-brand {
+            color: white;
+            font-weight: 900;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .services-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 75px 18px;
+            }
+
+            .hero {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .order-box {
+                padding: 25px;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-button {
+                display: none;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav class="navbar">
+        <div class="nav-container">
+
+            <a href="#home" class="logo">
+                GOATZ<span>OPT</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#process">How It Works</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+
+            <a href="#order" class="nav-button">
+                Order Now
+            </a>
+
+        </div>
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                ⚡ PC PERFORMANCE OPTIMIZATION
+            </div>
+
+            <h1>
+                UNLOCK YOUR<br>
+                <span>PC'S POTENTIAL.</span>
+            </h1>
+
+            <p>
+                Professional Windows and gaming PC optimization
+                designed to improve performance, responsiveness,
+                stability and overall gaming experience.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#pricing" class="btn btn-primary">
+                    View Packages
+                </a>
+
+                <a href="#order" class="btn btn-secondary">
+                    Get Optimized
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         STATS
+    ========================= -->
+
+    <div class="stats">
+
+        <div class="stat">
+            <h3>⚡ FPS</h3>
+            <p>Performance-focused configuration</p>
+        </div>
+
+        <div class="stat">
+            <h3>🎮 Gaming</h3>
+            <p>Competitive gaming optimization</p>
+        </div>
+
+        <div class="stat">
+            <h3>🛠️ Windows</h3>
+            <p>System configuration & cleanup</p>
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         SERVICES
+    ========================= -->
+
+    <section id="services">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <div class="section-label">
+                    What We Do
+                </div>
+
+                <h2>
+                    Optimize. Improve. Perform.
+                </h2>
+
+                <p>
+                    We configure your system around your hardware
+                    and the games you actually play.
+                </p>
+
+            </div>
+
+
+            <div class="services-grid">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        ⚡
+                    </div>
+
+                    <h3>FPS Optimization</h3>
+
+                    <p>
+                        Performance-focused Windows and game
+                        settings designed to help reduce unnecessary
+                        system overhead.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        🎯
+                    </div>
+
+                    <h3>Competitive Setup</h3>
+
+                    <p>
+                        Configuration focused on responsiveness,
+                        latency, consistency and competitive gaming.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        🧹
+                    </div>
+
+                    <h3>Windows Cleanup</h3>
+
+                    <p>
+                        Remove unnecessary startup items and
+                        configure Windows for a cleaner gaming setup.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        🖥️
+                    </div>
+
+                    <h3>GPU Configuration</h3>
+
+                    <p>
+                        Graphics driver and control-panel settings
+                        configured according to your gaming goals.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        🔧
+                    </div>
+
+                    <h3>System Tweaks</h3>
+
+                    <p>
+                        Carefully selected system settings intended
+                        to improve gaming responsiveness and stability.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        🎮
+                    </div>
+
+                    <h3>Game Optimization</h3>
+
+                    <p>
+                        Game-specific settings for titles such as
+                        CS2, PUBG and other competitive games.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PRICING
+    ========================= -->
+
+    <section class="pricing" id="pricing">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <div class="section-label">
+                    Simple Pricing
+                </div>
+
+                <h2>
+                    Choose Your Optimization
+                </h2>
+
+                <p>
+                    Pick the package that fits your system and
+                    performance goals.
+                </p>
+
+            </div>
+
+
+            <div class="pricing-grid">
+
+
+                <!-- BASIC -->
+
+                <div class="price-card">
+
+                    <h3>Basic</h3>
+
+                    <p class="price-description">
+                        Essential Windows and gaming configuration.
+                    </p>
+
+                    <div class="price">
+                        €8
+                        <small>one-time</small>
+                    </div>
+
+                    <ul class="features">
+
+                        <li>Windows optimization</li>
+                        <li>Startup cleanup</li>
+                        <li>Basic gaming settings</li>
+                        <li>GPU settings</li>
+                        <li>Performance recommendations</li>
+
+                    </ul>
+
+                    <a
+                        href="#order"
+                        class="btn btn-secondary price-button"
+                        onclick="selectPackage('Basic - €8')"
+                    >
+                        Choose Basic
+                    </a>
+
+                </div>
+
+
+                <!-- GAMING -->
+
+                <div class="price-card featured">
+
+                    <div class="popular">
+                        MOST POPULAR
+                    </div>
+
+                    <h3>Gaming</h3>
+
+                    <p class="price-description">
+                        Deeper optimization for everyday gaming.
+                    </p>
+
+                    <div class="price">
+                        €20
+                        <small>one-time</small>
+                    </div>
+
+                    <ul class="features">
+
+                        <li>Everything in Basic</li>
+                        <li>Advanced Windows tweaks</li>
+                        <li>Game optimization</li>
+                        <li>GPU control-panel setup</li>
+                        <li>Latency optimization</li>
+                        <li>Personalized configuration</li>
+
+                    </ul>
+
+                    <a
+                        href="#order"
+                        class="btn btn-primary price-button"
+                        onclick="selectPackage('Gaming - €20')"
+                    >
+                        Choose Gaming
+                    </a>
+
+                </div>
+
+
+                <!-- PRO -->
+
+                <div class="price-card">
+
+                    <h3>Pro Competitive</h3>
+
+                    <p class="price-description">
+                        Maximum competitive-focused configuration.
+                    </p>
+
+                    <div class="price">
+                        €30
+                        <small>one-time</small>
+                    </div>
+
+                    <ul class="features">
+
+                        <li>Everything in Gaming</li>
+                        <li>Competitive configuration</li>
+                        <li>Advanced performance tuning</li>
+                        <li>Game-specific optimization</li>
+                        <li>Latency & responsiveness focus</li>
+                        <li>Personal support</li>
+
+                    </ul>
+
+                    <a
+                        href="#order"
+                        class="btn btn-secondary price-button"
+                        onclick="selectPackage('Pro Competitive - €30')"
+                    >
+                        Choose Pro
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         HOW IT WORKS
+    ========================= -->
+
+    <section id="process">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <div class="section-label">
+                    Simple Process
+                </div>
+
+                <h2>
+                    How It Works
+                </h2>
+
+                <p>
+                    Getting your PC optimized takes only a few steps.
+                </p>
+
+            </div>
+
+
+            <div class="process-grid">
+
+                <div class="process-card">
+
+                    <div class="number">01</div>
+
+                    <h3>Choose</h3>
+
+                    <p>
+                        Select the optimization package
+                        you want.
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <div class="number">02</div>
+
+                    <h3>Order</h3>
+
+                    <p>
+                        Send your PC specifications and
+                        gaming information.
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <div class="number">03</div>
+
+                    <h3>Optimize</h3>
+
+                    <p>
+                        Your system is configured according
+                        to your hardware and goals.
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <div class="number">04</div>
+
+                    <h3>Play</h3>
+
+                    <p>
+                        Test your optimized configuration
+                        and enjoy your setup.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ORDER FORM
+    ========================= -->
+
+    <section class="order-section" id="order">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <div class="section-label">
+                    Start Your Order
+                </div>
+
+                <h2>
+                    Get Your PC Optimized
+                </h2>
+
+                <p>
+                    Fill in your details and we will contact you
+                    with the next steps.
+                </p>
+
+            </div>
+
+
+            <div class="order-box">
+
+                <form id="orderForm">
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Your name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="you@example.com"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="discord">
+                                Discord Username
+                            </label>
+
+                            <input
+                                type="text"
+                                id="discord"
+                                placeholder="yourusername"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="package">
+                                Package
+                            </label>
+
+                            <select id="package" required>
+
+                                <option value="">
+                                    Select package
+                                </option>
+
+                                <option value="Basic - €8">
+                                    Basic - €8
+                                </option>
+
+                                <option value="Gaming - €20">
+                                    Gaming - €20
+                                </option>
+
+                                <option value="Pro Competitive - €30">
+                                    Pro Competitive - €30
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group full">
+
+                            <label for="pc">
+                                PC Specifications
+                            </label>
+
+                            <textarea
+                                id="pc"
+                                placeholder="Example: Ryzen 5 7600X / RTX 5060 / 16GB RAM / Windows 11"
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <div class="form-group full">
+
+                            <label for="games">
+                                Games You Play
+                            </label>
+
+                            <input
+                                type="text"
+                                id="games"
+                                placeholder="CS2, PUBG, Valorant..."
+                            >
+
+                        </div>
+
+
+                        <div class="form-group full">
+
+                            <label for="message">
+                                Additional Information
+                            </label>
+
+                            <textarea
+                                id="message"
+                                placeholder="Tell us what you want to improve..."
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        style="width:100%;"
+                    >
+                        Submit Order
+                    </button>
+
+                    <p class="form-note">
+                        By submitting this form you agree that the
+                        information provided may be used to contact
+                        you regarding your order.
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FAQ
+    ========================= -->
+
+    <section id="faq">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <div class="section-label">
+                    FAQ
+                </div>
+
+                <h2>
+                    Frequently Asked Questions
+                </h2>
+
+            </div>
+
+
+            <div class="faq">
+
+                <details>
+
+                    <summary>
+                        Will optimization guarantee more FPS?
+                    </summary>
+
+                    <p>
+                        No specific FPS increase can be guaranteed because
+                        results depend on your hardware, game, drivers,
+                        settings and current system configuration.
+                    </p>
+
+                </details>
+
+
+                <details>
+
+                    <summary>
+                        Do I need to reinstall Windows?
+                    </summary>
+
+                    <p>
+                        Normally no. Optimization can often be performed
+                        without reinstalling Windows.
+                    </p>
+
+                </details>
+
+
+                <details>
+
+                    <summary>
+                        What information do I need to provide?
+                    </summary>
+
+                    <p>
+                        You should provide your PC specifications,
+                        Windows version and the games you want optimized.
+                    </p>
+
+                </details>
+
+
+                <details>
+
+                    <summary>
+                        Do you support CS2 and PUBG?
+                    </summary>
+
+                    <p>
+                        Yes. Game-specific optimization can be configured
+                        for competitive games including CS2 and PUBG.
+                    </p>
+
+                </details>
+
+
+                <details>
+
+                    <summary>
+                        How do I pay?
+                    </summary>
+
+                    <p>
+                        Payment can be handled through your preferred
+                        payment method. Replace the payment links on
+                        this website with your real payment information.
+                    </p>
+
+                </details>
+
+
+                <details>
+
+                    <summary>
+                        Can I contact you before ordering?
+                    </summary>
+
+                    <p>
+                        Yes. Add your Discord invite link to the
+                        contact buttons on this website.
+                    </p>
+
+                </details>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================= -->
+
+    <section class="cta">
+
+        <div class="container">
+
+            <div class="cta-box">
+
+                <h2>
+                    Ready to optimize?
+                </h2>
+
+                <p>
+                    Stop leaving performance on the table.
+                    Choose your package and get started.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#pricing"
+                        class="btn btn-primary"
+                    >
+                        View Packages
+                    </a>
+
+                    <!-- https://discord.gg/EwtJ3Z4Cp6 -->
+
+                    <a
+                        href="https://discord.gg/EwtJ3Z4Cp6"
+                        target="_blank"
+                        rel="noopener"
+                        class="btn btn-secondary"
+                    >
+                        Join Discord
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div>
+                <span class="footer-brand">
+                    GOATZ OPTIMIZATION
+                </span>
+                <br>
+                PC performance & gaming optimization.
+            </div>
+
+            <div>
+                © <span id="year"></span>
+                GOATZ OPTIMIZATION. All rights reserved.
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        /*
+         * Automatically selects a package
+         * when a pricing button is clicked.
+         */
+
+        function selectPackage(packageName) {
+
+            const packageSelect =
+                document.getElementById("package");
+
+            packageSelect.value = packageName;
+
+        }
+
+
+        /*
+         * Order form
+         *
+         * IMPORTANT:
+         * This currently opens the user's email client.
+         *
+         * Replace this later with a real form backend
+         * such as Formspree, Web3Forms, or your own server.
+         */
+
+        document
+            .getElementById("orderForm")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                const name =
+                    document.getElementById("name").value;
+
+                const email =
+                    document.getElementById("email").value;
+
+                const discord =
+                    document.getElementById("discord").value;
+
+                const packageName =
+                    document.getElementById("package").value;
+
+                const pc =
+                    document.getElementById("pc").value;
+
+                const games =
+                    document.getElementById("games").value;
+
+                const message =
+                    document.getElementById("message").value;
+
+
+                /*
+                 * CHANGE THIS TO YOUR REAL BUSINESS EMAIL.
+                 */
+
+                const businessEmail =
+                    "blazeakz@gmail.com";
+
+
+                const subject =
+                    encodeURIComponent(
+                        "New PC Optimization Order - " +
+                        packageName
+                    );
+
+
+                const body =
+                    encodeURIComponent(
+`NEW PC OPTIMIZATION ORDER
+
+Name:
+${name}
+
+Customer Email:
+${email}
+
+Discord:
+${discord}
+
+Package:
+${packageName}
+
+PC Specifications:
+${pc}
+
+Games:
+${games}
+
+Additional Information:
+${message}
+`
+                    );
+
+
+                window.location.href =
+                    `mailto:${businessEmail}?subject=${subject}&body=${body}`;
+
+            });
+
+
+        /*
+         * Current year
+         */
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>
+```
