@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GOATZ Optimization - Payment</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="payment-page">
+    <img src="assets/logo.png" alt="GOATZ Optimization" class="logo">
+    <h1>Complete Your Purchase</h1>
+
+    <div class="plans">
+      <button class="plan" data-plan="Basic" data-price="10">Basic — €10</button>
+      <button class="plan" data-plan="Gaming" data-price="30">Gaming — €30</button>
+      <button class="plan" data-plan="Pro" data-price="50">Pro — €50</button>
+    </div>
+
+    <p id="selected">Select a plan above.</p>
+
+    <div id="paypal-button-container"></div>
+    <div id="card-fields-container" hidden>
+      <h2>Pay with card</h2>
+      <div id="card-name-field-container"></div>
+      <div id="card-number-field-container"></div>
+      <div id="card-expiry-field-container"></div>
+      <div id="card-cvv-field-container"></div>
+      <button id="card-submit">Pay by card</button>
+    </div>
+
+    <p id="message"></p>
+  </main>
+
+  <!-- Replace YOUR_PAYPAL_CLIENT_ID with the Client ID from your PayPal Business app. -->
+  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=EUR&components=buttons,card-fields"></script>
+  <script src="js/paypal.js"></script>
+</body>
+</html>
